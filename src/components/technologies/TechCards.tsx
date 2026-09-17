@@ -1,11 +1,54 @@
-import React from "react";
+import type { Dispatch, SetStateAction } from "react";
+import type { Itechnologies } from "../../types/technologiesType";
+import TechnologyCard from "./TechnologyCards";
+import { RxCross1 } from "react-icons/rx";
 
-const TechCards = ({ technologies }) => {
+interface ITechCardsProps {
+  technologies:Itechnologies[];
+  selectedCards: Itechnologies[];
+  setSelectedCards: Dispatch<SetStateAction<Itechnologies[]>>;
+}
+
+
+
+
+const TechCards = ({ technologies , selectedCards, setSelectedCards} : ITechCardsProps ) => {
+
+  
+
   return (
-    <div>
-      {technologies.map((technology) => (
-        <li>{technology.name}</li>
+    <div className="grid grid-cols-4 gap-4">
+      <div className="col-span-3 grid grid-cols-3 gap-6">
+          {technologies.map((technology : Itechnologies) => (
+           <TechnologyCard key={technology.id} technology={technology} selectedCards={selectedCards} setSelectedCards={setSelectedCards}></TechnologyCard>
       ))}
+      </div>
+
+      <div className="col-span-1">
+        <p>Your Stack</p>
+        { selectedCards.length === 0 ? (<p>No technologies selected yet.</p>) : <div>
+          <p>{selectedCards.length} Technology Selected</p>
+
+          {selectedCards.map((technology) => (
+                <div key={technology.id} className="card bg-base-100 shadow-sm mt-4">
+                    <div className="card-body">
+                        <h2 className="text-xl font-bold">
+                            {technology.name}
+                        </h2>
+
+                        <p>{technology.description}</p>
+                        
+                        <div> <span><RxCross1 /></span></div>
+                        
+                    </div>
+                </div>
+            ))}
+
+        </div> }
+        
+      </div>
+
+      
     </div>
   );
 };
