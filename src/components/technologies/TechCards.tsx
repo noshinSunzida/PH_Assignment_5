@@ -14,7 +14,16 @@ interface ITechCardsProps {
 
 const TechCards = ({ technologies , selectedCards, setSelectedCards} : ITechCardsProps ) => {
 
-  
+  const handleRemoveCard = (technology:Itechnologies) => {
+
+    const restCards = selectedCards.filter(selectedCards => selectedCards.id != technology.id)
+
+    setSelectedCards(restCards);
+  }
+
+  const handleRemoveAll = () => {
+    setSelectedCards([]);
+  }
 
   return (
     <div className="grid grid-cols-4 gap-4">
@@ -38,13 +47,23 @@ const TechCards = ({ technologies , selectedCards, setSelectedCards} : ITechCard
 
                         <p>{technology.description}</p>
                         
-                        <div> <span><RxCross1 /></span></div>
+                        <div className="cursor-pointer"> <span onClick={()=> handleRemoveCard(technology)}><RxCross1 /></span></div>
                         
                     </div>
                 </div>
             ))}
 
-        </div> }
+             {selectedCards.length > 0 && (
+                        <button
+                            onClick={handleRemoveAll}
+                            className="btn btn-sm btn-error">
+
+                            Remove All </button>
+                        
+                    )}
+                </div>
+
+        }
         
       </div>
 

@@ -1,5 +1,4 @@
-
-import { useState, type Dispatch, type SetStateAction } from "react";
+import { type Dispatch, type SetStateAction } from "react";
 import type { Itechnologies } from "../../types/technologiesType";
 
 
@@ -10,8 +9,6 @@ interface ITechnologyCardProps {
 }
 
 const TechnologyCard = ({ technology,selectedCards,setSelectedCards }: ITechnologyCardProps) => {
-
-    const [isAdded, setIsAdded] = useState(false);
 
 
     return (
@@ -24,9 +21,9 @@ const TechnologyCard = ({ technology,selectedCards,setSelectedCards }: ITechnolo
                 </div>
                       <p>{technology.description}</p>
                   <div className="mt-6">
-                        <button onClick={() => {setIsAdded(true); setSelectedCards([...selectedCards, technology])}}
+                        <button onClick={() => {setSelectedCards([...selectedCards, technology])}}
                         className="btn btn-primary btn-block" 
-                        disabled ={isAdded === true ? true : false}>Add to Stack</button>
+                        disabled ={ selectedCards.some(selectedCards => selectedCards.id === technology.id)}>Add to Stack</button>
                   </div>
               </div>
             </div>
