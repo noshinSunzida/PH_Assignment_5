@@ -17,7 +17,7 @@ const TechnologyCard = ({ technology,selectedCards,setSelectedCards }: ITechnolo
 
 
     return (
-         <div className="card bg-base-100 shadow-2xs border border-slate-100 rounded-2xl">
+         <div className="card bg-base-100 shadow-sm border border-slate-100 rounded-2xl">
             <div className="card-body">
 
               <div className="flex justify-between">

@@ -28,14 +28,14 @@ const TechCards = ({ technologies , selectedCards, setSelectedCards} : ITechCard
   }
 
   return (
-    <div className="grid grid-cols-4 gap-4">
-      <div className="col-span-3 grid grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div className="col-span-1 lg:col-span-3 grid grid-cols-1 lg:grid-cols-3 gap-6">
           {technologies.map((technology : Itechnologies) => (
            <TechnologyCard key={technology.id} technology={technology} selectedCards={selectedCards} setSelectedCards={setSelectedCards}></TechnologyCard>
       ))}
       </div>
       
-      <div className="col-span-1">
+      <div className="col-span-1 lg:col-span-1">
         <div className="card bg-base-100 border border-slate-200 shadow-2xs rounded-2xl">
             <div className="card-body">
                 <p className="font-jakarta font-bold text-[16px]">Your Stack</p>
