@@ -14,8 +14,8 @@ const nav = () => {
                 
             </ul>
             <div className="flex gap-3">
-                <button className="text-slate-600 px-4 font-jakarta font-semibold text-[14px]">Sign In</button>
-                <button className="text-white bg-pink-600 rounded-3xl px-5 py-2 font-jakarta font-semibold text-[14px]">Sign Up</button>
+                <button className="text-slate-600 px-4 font-jakarta font-semibold text-[14px] cursor-pointer">Sign In</button>
+                <button className="text-white bg-pink-600 rounded-3xl cursor-pointer px-5 py-2 font-jakarta font-semibold text-[14px]">Sign Up</button>
             </div>
             </div>
             <hr className="border-gray-200"></hr>

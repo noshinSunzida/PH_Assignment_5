@@ -2,6 +2,7 @@ import type { Dispatch, SetStateAction } from "react";
 import type { Itechnologies } from "../../types/technologiesType";
 import TechnologyCard from "./TechnologyCards";
 import { RxCross1 } from "react-icons/rx";
+import { toast } from "react-toastify";
 
 interface ITechCardsProps {
   technologies:Itechnologies[];
@@ -23,6 +24,7 @@ const TechCards = ({ technologies , selectedCards, setSelectedCards} : ITechCard
 
   const handleRemoveAll = () => {
     setSelectedCards([]);
+    toast.error("All technologies removed from Stack!", {position:"bottom-right"});
   }
 
   return (
@@ -56,12 +58,13 @@ const TechCards = ({ technologies , selectedCards, setSelectedCards} : ITechCard
 
                         <div>
                           <h2 className="text-[15px] font-bold font-jakarta text-[#0F172A]"> {technology.name} </h2>
-                           <span className="text-slate-600 px-2 py-1 rounded-[4px] text-[11px] font-jakarta font-semibold">
+                           <span className="text-slate-600 px-2 py-1 rounded-sm text-[11px] font-jakarta font-semibold">
                         {technology.category}</span>
                         </div>
                     </div> 
                         
-                        <div className="cursor-pointer"> <span onClick={()=> handleRemoveCard(technology)}><RxCross1 /></span></div>
+                        <div className="cursor-pointer"> <span onClick={()=> {handleRemoveCard(technology); 
+                          toast.info(`${technology.name} removed from stack!`, {position:"bottom-right"})}}><RxCross1 /></span></div>
                         
                     
                 </div>
