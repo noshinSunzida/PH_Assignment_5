@@ -1,4 +1,5 @@
 
+import { PiCopyrightBold } from "react-icons/pi";
 import Logo from "../assets/logo-text.png";
 
 const Footer = () => {
@@ -49,7 +50,10 @@ const Footer = () => {
         </section>
         <div className="flex justify-between max-w-7xl mx-auto pb-10">
 
-            <p className="font-jakarta text-[14px] text-slate-500">© 2026 Dev Stack. All rights reserved.</p>
+            <span className=" flex items-center gap-1 font-jakarta text-[14px] text-slate-500">
+                <PiCopyrightBold /><p>2026 Dev Stack. All rights reserved.</p>
+            </span>
+
 
             <ul className="flex items-center gap-4">
                     <li><a href="" className="footer-link hover:underline">Privacy</a></li>
